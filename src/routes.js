@@ -3,16 +3,16 @@ import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom'
 
 import Login from './containers/Login'
 import Signup from './containers/Signup'
-import LandingContainer from './containers/LandingContainer'
+import Landing from './containers/Landing'
 
 export default (
   <BrowserRouter>
     <Switch id='routes'>
-      <Route exact path='/' render={() => loggedIn() ? <LandingContainer /> : <Redirect to="/login" />} />
+      <Route exact path='/' render={() => loggedIn() ? <Landing /> : <Redirect to="/login" />} />
       <Route path='/signup' component={() => loggedIn() ? <Redirect to="/" /> : <Signup />} />
       <Route path='/login' component={() => loggedIn() ? <Redirect to="/" /> : <Login />} />
       <Route path='/logout' component={() => logout()} />
-      <Route path='/posts' component={() => loggedIn() ? <PostsContainer/> : <Redirect to="/login" />} />
+      <Route path='/posts' component={() => loggedIn() ? <Landing /> : <Redirect to="/login" />} />
 
       <Route path='/tests' component={() => <div>Testing Path<br /><Link to="/">Back Home</Link></div>} />
     </Switch>

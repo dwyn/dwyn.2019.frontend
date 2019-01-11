@@ -1,6 +1,6 @@
 import  React  from "react";
 
-const postPreview = () => {
+const postPreview = (props) => {
   return <p> Im a post </p>
 };
 
